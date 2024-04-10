@@ -15,6 +15,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh; /* This ensures the content is centered vertically */
+            flex-direction: column; /* Align items in a column */
         }
         
         .container {
@@ -28,6 +29,7 @@
         p {
             font-size: 16px;
             color: #666;
+            margin: 10px 0; /* Add margin for better spacing */
         }
         a {
             color: #007bff;
@@ -41,21 +43,31 @@
         }
 
         footer {
-            position: absolute;
-            bottom: 10px;
             width: 100%;
             text-align: center;
+            margin-top: auto; /* Push footer to the bottom */
+        }
+
+        @media screen and (max-width: 480px) {
+            /* Adjustments for smaller screens */
+            h1 {
+                font-size: 20px;
+            }
+            img {
+                width: 80px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Please verify your email...</h1>
-        <img src="i4.png" alt="Email Icon"> <!-- Replace "email_icon.png" with the path to your email icon image file -->
-        <p>Please verify your email address.We’ve sent a confirmation email to: <br><br><strong id="emailAddress"></strong></p>
+        <img src="i4.png" alt="Email Icon"> 
+        <p>Please verify your email address. We’ve sent a confirmation email to:</p>
+        <strong id="emailAddress"></strong>
         <p>Click the confirmation link in that email to begin using Dribbble.</p>
-        <p>Didn’t receive the email? Check your Spam folder, it may have been caught by a filter. <br><br>If you still don’t see it, you can resend the confirmation email.</p>
-        <p><a href="index.html">Wrong mail address? Change it.</a></p> <!-- Link to go back to internship.html -->
+        <p>Didn’t receive the email? Check your Spam folder, it may have been caught by a filter. If you still don’t see it, you can resend the confirmation email.</p>
+        <p><a href="index.html">Wrong mail address? Change it.</a></p> 
     </div>
     <footer>
         <p>Dribbble is the world’s leading community for creatives to share, grow, and get hired.</p>
@@ -64,10 +76,9 @@
     <script>
         // JavaScript to dynamically display the email address entered by the user
         // Retrieve email from localStorage
-var userEmail = localStorage.getItem('userEmail');
-// Display email in the confirmation message
-document.getElementById('emailAddress').textContent = userEmail;
-
+        var userEmail = localStorage.getItem('userEmail');
+        // Display email in the confirmation message
+        document.getElementById('emailAddress').textContent = userEmail;
     </script>
 </body>
 </html>
