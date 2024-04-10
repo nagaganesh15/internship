@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* This ensures the content is centered vertically */
+        }
+        
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        img {
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 20px; /* Add some space between text and icon */
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Please verify your email...</h1>
+        <img src="i4.png" alt="Email Icon"> <!-- Replace "email_icon.png" with the path to your email icon image file -->
+        <p>Please verify your email address.We’ve sent a confirmation email to: <br><br><strong id="emailAddress"></strong></p>
+        <p>Click the confirmation link in that email to begin using Dribbble.</p>
+        <p>Didn’t receive the email? Check your Spam folder, it may have been caught by a filter. <br><br>If you still don’t see it, you can resend the confirmation email.</p>
+        <p><a href="index.html">Wrong mail address? Change it.</a></p> <!-- Link to go back to internship.html -->
+    </div>
+    <footer>
+        <p>Dribbble is the world’s leading community for creatives to share, grow, and get hired.</p>
+    </footer>
+
+    <script>
+        // JavaScript to dynamically display the email address entered by the user
+        // Retrieve email from localStorage
+var userEmail = localStorage.getItem('userEmail');
+// Display email in the confirmation message
+document.getElementById('emailAddress').textContent = userEmail;
+
+    </script>
+</body>
+</html>
