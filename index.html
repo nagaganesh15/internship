@@ -76,7 +76,26 @@
         .error-message {
             color: red;
         }
-        
+
+        /* Media Query for Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .image-container {
+                padding: 0; /* Remove padding on mobile */
+                margin-bottom: 20px; /* Add margin for spacing on mobile */
+            }
+
+            .image-container img {
+                width: 70%; /* Adjust image width for better mobile display */
+            }
+
+            .form-container {
+                margin-right: 0; /* Remove margin on mobile */
+            }
+        }
     </style>
 </head>
 <body>
