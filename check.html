@@ -1,0 +1,118 @@
+<html>
+<head>
+    <title>Dribbble Options</title>
+    <style>
+        /* styles.css */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .option {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .option.selected {
+            border-color: red;
+        }
+
+        /* Style for checkboxes */
+        .checkbox-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .checkbox-option {
+            margin: 0 10px;
+        }
+
+        .next-btn {
+            background-color: #ff7f7f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        .next-btn:hover {
+            background-color: #7a4e9d;
+            transform: translateY(-2px);
+        }
+
+        /* Style for the message */
+        .message {
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>What brings you to Dribbble?</h1>
+        <p>Select the options that best describe you. Don't worry, you can explore other options later.</p>
+        <br>
+        <br>
+        <br>
+        <div class="options">
+            <label class="option">
+                <img src="i1.png" alt="Designer Image">
+                <p>I'm a designer looking to share my work</p>
+                <input type="checkbox" name="option" value="designer" class="checkbox-option">
+            </label>
+            <label class="option">
+                <img src="i2.png" alt="Hire Designer Image">
+                <p>I'm looking to hire a designer</p>
+                <input type="checkbox" name="option" value="hire" class="checkbox-option">
+            </label>
+            <label class="option">
+                <img src="i3.png" alt="Design Inspiration Image">
+                <p>I'm looking for design inspiration</p>
+                <input type="checkbox" name="option" value="inspiration" class="checkbox-option">
+            </label>
+        </div>
+        <div class="message" id="message"></div>
+
+        <button class="next-btn" id="finishButton" disabled>Finish</button>
+    </div>
+
+    <script>
+    document.querySelectorAll('.checkbox-option').forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            var option = this.parentElement; // Get the parent label element
+            option.classList.toggle('selected'); // Toggle the 'selected' class on the parent label
+            checkSelection();
+        });
+    });
+
+    function checkSelection() {
+        var finishButton = document.getElementById('finishButton');
+        var selectedOptions = document.querySelectorAll('.option.selected');
+        var message = document.getElementById('message');
+        finishButton.disabled = selectedOptions.length === 0;
+        message.textContent = selectedOptions.length > 0 ? "Anything else? You can select multiple." : "";
+    }
+    document.getElementById('finishButton').addEventListener('click', function() {
+        window.location.href = 'email.html'; // Redirect to int2.html when the button is clicked
+    });
+</script>
+
+</body>
+</html>
